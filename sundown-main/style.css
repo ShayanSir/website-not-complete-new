@@ -429,7 +429,7 @@ nav h3 {
 }
 
 #page5 {
-    height: 100vh;
+    height: 70vh;
     width: 100%;
     /* background-color: #EFEAE3; */
 }
@@ -858,6 +858,73 @@ nav h3 {
         opacity: 0;
         visibility: hidden;
     }
+}
+
+/* footer  */
+.mainbg{
+    background: linear-gradient(to top right, #ff6666, #ff9999, #ffcc66, #ff0000, #e90202);
+}
+
+.productslist{
+    list-style: none;
+}
+
+
+
+.productslist li a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 500;
+} 
+
+.sicon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sicon span{
+    width: 25px;
+    height: 25px;
+    background: linear-gradient( #ff6666, #ff9999, #ffcc66, #ff0000, #f52f2f);
+    padding: 20px;
+    margin: 2px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 10;
+   
+}
+
+hr{
+    border: 2px solid #000000;
+    box-shadow: 2px 1px 10px #000000;
+}
+
+.social-icon {
+    color: inherit; /* This will inherit the text color */
+    text-decoration: none; /* This removes the underline from links */
+}
+
+.social-icon:hover {
+    color: #000000; /* This changes the color on hover, use your desired color */
+    /* You can also add other effects like transform: scale(1.1); for a zoom effect */
+}
+
+/* Style for all links */
+a {
+    color: inherit; /* Inherits the text color */
+    text-decoration: none; /* Removes the underline from links */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Hover effect for links */
+a:hover {
+    color: #000000; /* Changes the color on hover, use your desired color */
+    /* You can add other effects like text-decoration or transform */
+}
+.productslist a:hover {
+    color: #000000; /* Your desired hover color */
 }
 
 

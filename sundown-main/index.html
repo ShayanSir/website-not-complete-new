@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,11 +22,11 @@
        <a href="https://wa.me/"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
     <!-- Splash Screen -->
-<div id="splash-screen">
+<!-- <div id="splash-screen">
     <h1 id="heading1" class="splash-heading">SUBSCRIPTION</h1>
     <h1 id="heading2" class="splash-heading">ON</h1>
     <h1 id="heading3" class="splash-heading">ENTERTAINMENT</h1>
-</div>
+</div> -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -60,15 +61,17 @@
     <div id="main">  
         <div id="page1">
             <div id="center">
-                <div id="left">
+                <div id="left" data-aos="fade-right">
                     <h3>Sundown is a multi-disciplinary studio focused on creating unique, end-to-end experiences and
                         environments.</h3>
                 </div>
-                <div id="right">
+                <div id="right" data-aos="fade-left">
+                    
                     <h1>Subscribtion <br>
                         on <br>
                         Entertainment </h1>
-                </div>
+               
+            </div>
 
             </div>
             <div id="hero-shape">
@@ -82,11 +85,17 @@
             <div id="moving-text">
                 <div class="con">
                     <h1>NETFLIX</h1>
-                    <div id="gola"></div>
+                    <div id="gola">
+                        <i class="fa-solid fa-n"></i>
+                    </div>
                     <h1>AMAZONE PRIME</h1>
-                    <div id="gola"></div>
+                    <div id="gola">
+                        <i class="fa-brands fa-amazon"></i>
+                    </div>
                     <h1>YOUTUBE PREMIUM</h1>
-                    <div id="gola"></div>
+                    <div id="gola">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
                 </div>
                 <div class="con">
                     <h1>NETFLIX</h1>
@@ -105,6 +114,7 @@
                     <div id="gola"></div>
                 </div>
             </div>
+            
             <div id="page2-bottom">
                 <h1>We are a group of design- driven, goal-focused creators,  producers, and designers who
                     believe that the details  make all the difference.</h1>
@@ -184,27 +194,99 @@
                     <div class="swiper-slide">Slide 6</div>
                     <div class="swiper-slide">Slide 7</div>
                 </div>
-
             </div>
         </div>
-        <div id="page5">
-
-        </div>
-        <div id="full-scr">
-            <div id="full-div1">
-                
+        <!-- Footer  -->
+        <div class="container-fluid mainbg text-light py-3 px-5">
+            <div class="row d-flex justify-content-around p-lg-5 p-md-1 p-sm-1">
+                <div class="col-lg-4 mb-4 boxborder">
+                    <h4>Company Name</h4>
+                    <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam unde incidunt quam, reprehenderit
+                        quasi esse repudiandae nostrum earum voluptate? Itaque dolore nulla quos porro perspiciatis?</p>
+    
+                </div>
+                <div class="col-lg-2 mb-4 boxborder">
+                    <h4>Products</h4>
+                    <ul class="list-group productslist ">
+                        <li><a href="#">Bootstrap</a></li>
+                        <li><a href="#">Wordpress</a></li>
+                        <li><a href="#">Laravel</a></li>
+                        <li><a href="#">Node js</a></li>
+                        <li><a href="#">Python</a></li>
+                    </ul>
+    
+                </div>
+                <div class="col-lg-2 mb-4 boxborder">
+                    <h4>Usefull Links</h4>
+                    <ul class="list-group productslist ">
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Account</a></li>
+                        <li><a href="#">Cart</a></li>
+                        <li><a href="#">Store</a></li>
+                        <li><a href="#">payment</a></li>
+                    </ul>
+    
+                </div>
+                <div class="col-lg-3 mb-4 boxborder">
+                    <h4>Contact</h4>
+                    <ul class="list-group productslist ">
+                        <li>
+                            <a href="#">
+                                <span><i class="fa-solid fa-house"></i></span>
+                                New Work
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-envelope"></i>
+    
+                                email@mail.com</a>
+                        </li>
+                        <li><a href="#"> <span><i class="fa-solid fa-phone-flip"></i></span> 014152547</a></li>
+                        <li><a href="#">
+                            <span><i class="fa-solid fa-fax"></i></span>
+                            
+                            0124587</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="row d-flex justify-content-between px-3">
+                    <div class="col-lg-4 col-md-12 d-flex align-items-end">
+                        <p>&copy; 2022 Copyright Abu sayed</p>
+                    </div>
+                    <div class="col-lg-4 col-md-12 text-end">
+                        <p class="sicon">
+                            <span>
+                                <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="https://www.youtube.com" target="_blank" class="social-icon">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="https://www.pinterest.com" target="_blank" class="social-icon">
+                                    <i class="fa-brands fa-pinterest"></i>
+                                </a>
+                            </span>
+                        </p>
+                    </div>
+    
+                </div>
             </div>
         </div>
-    </div>
-    <div id="footer">
-        <div id="footer-div">
 
-        </div>
-        <h1>NETFLIX</h1>
-        <div id="footer-bottom">
-
-        </div>
-    </div>
+    <script src="https://kit.fontawesome.com/ba8b15f118.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
@@ -232,6 +314,10 @@
             }, 2500);
         });
         </script>
+          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+          <script>
+            AOS.init();
+          </script>
         
         
 </body>

@@ -1,256 +1,147 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .wrapper {
-    max-width: 60em;
-    margin: 1em auto;
-    position: relative;
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wdd 02</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+      *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-input {
-    display: none;
+.mainbg{
+    background: #45536D;
 }
 
-.inner {
-    width: 500%; /* Adjusted manually from SCSS variable */
-    line-height: 0;
+.productslist{
+    list-style: none;
 }
 
-article {
-    width: 20%; /* Adjusted manually from SCSS variable */
-    float: left;
-    position: relative;
-}
 
-article img {
-    width: 100%;
-}
 
-/*---- SET UP CONTROL ----*/
-.slider-prev-next-control {
-    height: 50px;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
+.productslist li a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 500;
+} 
 
-.slider-prev-next-control label {
-    display: none;
-    width: 40px;
-    height: 40px;
+.sicon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sicon span{
+    width: 25px;
+    height: 25px;
+    background: #59657D;
+    box-shadow: 2px 18px 10px #3E495D;
+    padding: 20px;
+    margin: 2px;
     border-radius: 50%;
-    background: #fff;
-    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+   
 }
 
-.slider-prev-next-control label:hover {
-    opacity: 1;
+hr{
+    border: 2px solid #59657D;
+    box-shadow: 2px 1px 10px #3E495D;
 }
-
-.slider-dot-control {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-}
-
-.slider-dot-control label {
-    cursor: pointer;
-    border-radius: 5px;
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: #bbb;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-}
-
-.slider-dot-control label:hover {
-    background: #ccc;
-    border-color: #777;
-}
-
-/* Info Box */
-.info {
-    position: absolute;
-    font-style: italic;
-    line-height: 20px;
-    opacity: 0;
-    color: #000;
-    text-align: left;
-    -webkit-transition: all 1000ms ease-out 600ms;
-    transition: all 1000ms ease-out 600ms;
-}
-
-.info h3 {
-    color: #fcfff4;
-    margin: 0 0 5px;
-    font-weight: normal;
-    font-size: 1.5em;
-    font-style: normal;
-}
-
-.info.top-left {
-    top: 30px;
-    left: 30px;
-}
-
-.info.top-right {
-    top: 30px;
-    right: 30px;
-}
-
-.info.bottom-left {
-    bottom: 30px;
-    left: 30px;
-}
-
-.info.bottom-right {
-    bottom: 30px;
-    right: 30px;
-}
-
-/* Slider Styling */
-.slider-wrapper {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 5px;
-    box-shadow: 1px 1px 4px #666;
-    background: #fcfff4;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-transition: all 500ms ease-out;
-    transition: all 500ms ease-out;
-}
-
-.slider-wrapper .inner {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-transition: all 800ms cubic-bezier(0.77, 0, 0.175, 1);
-    transition: all 800ms cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-/*---- SET POSITION FOR SLIDE ----*/
-/* These styles depend on the number of slides and require specific IDs. 
-   You will need to manually add these based on the number of slides in your HTML. */
-
-/* Example for 5 slides */
-#slide1:checked ~ .slider-wrapper .inner {
-    margin-left: 0%;
-}
-
-#slide2:checked ~ .slider-wrapper .inner {
-    margin-left: -100%;
-}
-
-#slide3:checked ~ .slider-wrapper .inner {
-    margin-left: -200%;
-}
-
-#slide4:checked ~ .slider-wrapper .inner {
-    margin-left: -300%;
-}
-
-#slide5:checked ~ .slider-wrapper .inner {
-    margin-left: -400%;
-}
-
-/* Additional styles for prev/next buttons and active dots need to be added manually for each slide. */
-
-/*---- TABLET ----*/
-@media only screen and (max-width: 850px) and (min-width: 450px) {
-    .slider-wrapper {
-        border-radius: 0;
-    }
-}
-
-/*---- MOBILE----*/
-@media only screen and (max-width: 450px) {
-    .slider-wrapper {
-        border-radius: 0;
-    }
-
-    .slider-wrapper .info {
-        opacity: 0;
-    }
-}
-
-@media only screen and (min-width: 850px) {
-    body {
-        padding: 0 80px;
-    }
-}
-
-  </style>
+    </style>
 </head>
+
 <body>
-  <div class="wrapper">
-    <input checked type=radio name="slider" id="slide1" />
-    <input type=radio name="slider" id="slide2" />
-    <input type=radio name="slider" id="slide3" />
-    <input type=radio name="slider" id="slide4" />
-    <input type=radio name="slider" id="slide5" />
-  
-    <div class="slider-wrapper">
-      <div class=inner>
-        <article>
-          <div class="info top-left">
-            <h3>Malacca</h3></div>
-          <img src="https://farm9.staticflickr.com/8059/28286750501_dcc27b1332_h_d.jpg" />
-        </article>
-  
-        <article>
-          <div class="info bottom-right">
-            <h3>Cameron Highland</h3></div>
-          <img src="https://farm6.staticflickr.com/5812/23394215774_b76cd33a87_h_d.jpg" />
-        </article>
-  
-        <article>
-          <div class="info bottom-left">
-            <h3>New Delhi</h3></div>
-          <img src="https://farm8.staticflickr.com/7455/27879053992_ef3f41c4a0_h_d.jpg" />
-        </article>
-  
-        <article>
-          <div class="info top-right">
-            <h3>Ladakh</h3></div>
-          <img src="https://farm8.staticflickr.com/7367/27980898905_72d106e501_h_d.jpg" />
-        </article>
-  
-        <article>
-          <div class="info bottom-left">
-            <h3>Nubra Valley</h3></div>
-          <img src="https://farm8.staticflickr.com/7356/27980899895_9b6c394fec_h_d.jpg" />
-        </article>
-      </div>
-      <!-- .inner -->
+
+    <div class="container-fluid mainbg text-light py-3 px-5">
+        <div class="row d-flex justify-content-around p-lg-5 p-md-1 p-sm-1">
+            <div class="col-lg-4 mb-4 boxborder">
+                <h4>Company Name</h4>
+                <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam unde incidunt quam, reprehenderit
+                    quasi esse repudiandae nostrum earum voluptate? Itaque dolore nulla quos porro perspiciatis?</p>
+
+            </div>
+            <div class="col-lg-2 mb-4 boxborder">
+                <h4>Products</h4>
+                <ul class="list-group productslist ">
+                    <li><a href="#">Bootstrap</a></li>
+                    <li><a href="#">Wordpress</a></li>
+                    <li><a href="#">Laravel</a></li>
+                    <li><a href="#">Node js</a></li>
+                    <li><a href="#">Python</a></li>
+                </ul>
+
+            </div>
+            <div class="col-lg-2 mb-4 boxborder">
+                <h4>Usefull Links</h4>
+                <ul class="list-group productslist ">
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Account</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Store</a></li>
+                    <li><a href="#">payment</a></li>
+                </ul>
+
+            </div>
+            <div class="col-lg-3 mb-4 boxborder">
+                <h4>Contact</h4>
+                <ul class="list-group productslist ">
+                    <li>
+                        <a href="#">
+                            <span><i class="fa-solid fa-house"></i></span>
+                            New Work
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-envelope"></i>
+
+                            email@mail.com</a>
+                    </li>
+                    <li><a href="#"> <span><i class="fa-solid fa-phone-flip"></i></span> 014152547</a></li>
+                    <li><a href="#">
+                        <span><i class="fa-solid fa-fax"></i></span>
+                        
+                        0124587</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row d-flex justify-content-between px-3">
+                <div class="col-lg-4 col-md-12 d-flex align-items-end">
+                    <p>&copy; 2022 Copyright Abu sayed</p>
+                </div>
+                
+                <div class="col-lg-4 col-md-12 text-end">
+                    <p class="sicon">
+                        <span>
+                            <i class="fa-brands fa-facebook"></i>
+                        </span>
+                        <span>
+                            <i class="fa-brands fa-youtube"></i>
+                        </span>
+                        <span>
+                            <i class="fa-brands fa-twitter"></i>
+                        </span>
+                        <span>
+                            <i class="fa-brands fa-pinterest"></i>
+                        </span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
     </div>
-    <!-- .slider-wrapper -->
-  
-    <div class="slider-prev-next-control">
-      <label for=slide1></label>
-      <label for=slide2></label>
-      <label for=slide3></label>
-      <label for=slide4></label>
-      <label for=slide5></label>
-    </div>
-    <!-- .slider-prev-next-control -->
-  
-    <div class="slider-dot-control">
-      <label for=slide1></label>
-      <label for=slide2></label>
-      <label for=slide3></label>
-      <label for=slide4></label>
-      <label for=slide5></label>
-    </div>
-    <!-- .slider-dot-control -->
-  </div>
+    <script src="https://kit.fontawesome.com/ba8b15f118.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
