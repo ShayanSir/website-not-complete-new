@@ -6,128 +6,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
+        .wall{
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/18515/PIA09959-1280x800_copy.jpg);
+  background-size: cover;
+}
 
-        .overlay {
-            display: none;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
+html, body{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
 
-        .drawer {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 2;
-            top: 0;
-            right: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            color: white;
-        }
+body{
+  background: #000;
+  text-align: center;
+}
 
-        .drawer a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
+body:before{
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
 
-        .drawer a:hover {
-            color: #f1f1f1;
-        }
+.scene{
+  display: inline-block;
+  vertical-align: middle;
+  perspective: 5px;
+  perspective-origin: 50% 50%;
+  position: relative;
+}
 
-        #closeButton {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 30px;
-            margin-left: 50px;
-            border: none;
-            background: none;
-            color: white;
-            cursor: pointer;
-        }
+.wrap{
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  left: -500px;
+  top: -500px;
+  transform-style: preserve-3d;
+  animation: move 12s infinite linear;
+  animation-fill-mode: forwards;
+  
+}
 
-        .openButton {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 3;
-        }
+.wrap:nth-child(2){
+  animation: move 12s infinite linear;
+  animation-delay: 6s;
+}
+
+.wall {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  animation: fade 12s infinite linear;
+  animation-delay: 0;
+}
+
+.wrap:nth-child(2) .wall {
+  animation-delay: 6s;
+}
+
+.wall-right {
+  transform: rotateY(90deg) translateZ(500px);
+}
+
+.wall-left {
+  transform: rotateY(-90deg) translateZ(500px);
+}
+
+.wall-top {
+  transform: rotateX(90deg) translateZ(500px);
+}
+
+.wall-bottom {
+  transform: rotateX(-90deg) translateZ(500px);
+}
+
+.wall-back {
+  transform: rotateX(180deg) translateZ(500px);
+}
+
+@keyframes move {
+  0%{
+    transform: translateZ(-500px) rotate(0deg);
+  }
+  100%{
+    transform: translateZ(500px) rotate(0deg);
+  }
+}
+
+@keyframes fade {
+  0%{
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
 
     </style>
 </head>
 
 <body>
-
-    <div id="drawer" class="drawer">
-        <button id="closeButton">&#10006;</button> <!-- Close icon added -->
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
+    <div class="scene">
+        <div class="wrap">
+            <div class="wall wall-right"></div>
+            <div class="wall wall-left"></div>
+            <div class="wall wall-top"></div>
+            <div class="wall wall-bottom"></div>
+            <div class="wall wall-back"></div>
+        </div>
+        <div class="wrap">
+            <div class="wall wall-right"></div>
+            <div class="wall wall-left"></div>
+            <div class="wall wall-top"></div>
+            <div class="wall wall-bottom"></div>
+            <div class="wall wall-back"></div>
+        </div>
     </div>
-
-    <button id="openButton" class="openButton">
-        <span class="buttonText">&#9776;</span>
-    </button>
-
-    <div id="overlay" class="overlay"></div>
-
-    <script>
-        // Function to toggle button text and icon
-        function toggleButton() {
-            const buttonText = document.querySelector('.buttonText');
-            if (drawer.style.width === '0' || drawer.style.width === '') {
-                buttonText.innerHTML = '&#9776; Open'; // Icon/text for open
-            } else {
-                buttonText.innerHTML = '&#10006; Close'; // Icon/text for close
-            }
-        }
-
-        // Update button toggle logic
-        openButton.onclick = function () {
-            if (drawer.style.width === '50%') {
-                drawer.style.width = '0';
-                overlay.style.display = 'none';
-                setTimeout(() => openButton.classList.remove('hidden'), 500); // Show after transition
-            } else {
-                drawer.style.width = '50%';
-                overlay.style.display = 'block';
-                openButton.classList.add('hidden'); // Hide immediately
-            }
-            setTimeout(toggleButton, 500); // Delay for icon/text change
-        }
-
-        document.getElementById('closeButton').onclick = function () {
-            drawer.style.width = '0';
-            overlay.style.display = 'none';
-            setTimeout(() => openButton.classList.remove('hidden'), 500); // Show after transition
-            setTimeout(toggleButton, 500); // Delay for icon/text change
-        }
-
-        overlay.onclick = function () {
-            drawer.style.width = '0';
-            overlay.style.display = 'none';
-            setTimeout(() => openButton.classList.remove('hidden'), 500); // Show after transition
-            setTimeout(toggleButton, 500); // Delay for icon/text change
-        }
-    </script>
 </body>
 
 </html>

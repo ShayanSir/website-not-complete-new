@@ -142,7 +142,7 @@ nav h3 {
 }
 
 #center {
-    height: 65vh;
+    height: 100vh;
     width: 100%;
     /* background-color: orange; */
     display: flex;
@@ -150,6 +150,7 @@ nav h3 {
     justify-content: space-between;
     border-bottom: 1px solid #0000003c;
     padding-bottom: 1.5vw;
+    top: 20px;
 }
 
 #left h3 {
@@ -245,10 +246,16 @@ nav h3 {
 #moving-text {
     overflow-x: auto;
     white-space: nowrap;
+    scrollbar-width: none; /* For Firefox */
 }
 
 #moving-text::-webkit-scrollbar {
-    display: none;
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.con h1 {
+    display: inline-block;
+    margin-right: 5px;
 }
 
 .con {
@@ -258,23 +265,52 @@ nav h3 {
     animation-duration: 10s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    text-align: center;
 }
 
 #moving-text h1 {
-    font-size: 9vw;
-    /* background-color: lightblue; */
+    font-size: 5vw;
+    font-weight: bold;
     display: inline-block;
+    background: black;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
-#gola {
+.fa-n,
+.fa-amazon,
+.fa-youtube {
+    font-weight: normal;
+    color: red;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* .fa-solid{
+    font-size: 50px;
+    font-style: bold;
+    color: red;
+    align-items: center;
+} */
+
+/* #gola {
     height: 70px;
     width: 70px;
     border-radius: 50%;
     display: inline-block;
-    /* background-color: #d11111; */
+    background-color: #d11111;
     background: linear-gradient(#ff6666, #ff9999, #ffcc66, #ff0000, #e90202);
     margin: 1vw 2vw;
-}
+} */
+
+
 
 @keyframes move {
     from {
@@ -434,16 +470,16 @@ nav h3 {
     /* background-color: #EFEAE3; */
 }
 
-#footer {
-    /* position: fixed; */
-    /* height: 105vh; */
+/* #footer {
+    position: fixed;
+    height: 105vh;
     width: 100%;
     background-color: #000;
     color: #fff;
     z-index: 0;
-    /* bottom: 0; */
+    bottom: 0;
     display: flex;
-    /* align-items: flex-end; */
+    align-items: flex-end;
     justify-content: flex-end;
     flex-direction: column;
     padding: 1vw 3vw;
@@ -454,7 +490,7 @@ nav h3 {
 }
 
 #footer-div {
-    margin-top: 100px;
+    margin-top: 10px;
     height: 20vh;
     width: 100%;
     background-color: red;
@@ -464,7 +500,7 @@ nav h3 {
     border-top: 1px solid #dadada;
     height: 10vh;
     width: 100%;
-}
+} */
 
 #full-scr {
     height: 100vh;
@@ -485,7 +521,7 @@ nav h3 {
 
 }
 
-@media (max-width:600px) {
+@media only screen and  (max-width:700px) {
 
     #page1 {
         min-height: 100vh;
@@ -684,7 +720,7 @@ nav h3 {
     min-height: 220px;
     width: 320px;
     padding: 30px;
-    border-radius: 5px;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -776,36 +812,41 @@ nav h3 {
     }
 }
 
+/* Add transition to the card */
+.card {
+    /* existing styles */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
+/* Scale up the card slightly on hover */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
+}
 
-/* FOOTER  */
+/* Example of keyframes animation for a pulse effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-  }
+/* Apply the pulse animation on hover */
+.card:hover {
+    animation: pulse 1s infinite;
+}
 
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
+/* Rest of your existing CSS */
 
-  .footer-links {
-    margin-top: 10px;
-  }
+  
 
-  .footer-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-  }
-
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-
+/* Whatsapp  */
 
   .whatsapp > a > i {
     color: white;
@@ -845,6 +886,7 @@ nav h3 {
     opacity: 0; /* Initially hidden */
     transition: opacity 1s ease;
     margin: 0;
+    font-size: 70px;
 }
 
 /* Hide splash screen after animations */
@@ -860,9 +902,23 @@ nav h3 {
     }
 }
 
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+    .splash-heading {
+        font-size: 8vw; /* Larger font size for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .splash-heading {
+        font-size: 10vw; /* Even larger font size for very small screens */
+    }
+}
+
 /* footer  */
 .mainbg{
-    background: linear-gradient(to top right, #ff6666, #ff9999, #ffcc66, #ff0000, #e90202);
+    /* background: linear-gradient(to top right, #ff6666, #ff9999, #ffcc66, #ff0000, #e90202); */
+    background: black;
 }
 
 .productslist{
@@ -885,15 +941,14 @@ nav h3 {
 .sicon span{
     width: 25px;
     height: 25px;
-    background: linear-gradient( #ff6666, #ff9999, #ffcc66, #ff0000, #f52f2f);
+    /* background: linear-gradient( #ff6666, #ff9999, #ffcc66, #ff0000, #f52f2f); */
+    background: black;
     padding: 20px;
     margin: 2px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 10;
-   
 }
 
 hr{
@@ -907,7 +962,7 @@ hr{
 }
 
 .social-icon:hover {
-    color: #000000; /* This changes the color on hover, use your desired color */
+    color: #ff0000; /* This changes the color on hover, use your desired color */
     /* You can also add other effects like transform: scale(1.1); for a zoom effect */
 }
 
@@ -920,12 +975,13 @@ a {
 
 /* Hover effect for links */
 a:hover {
-    color: #000000; /* Changes the color on hover, use your desired color */
+    color: #ff0000; /* Changes the color on hover, use your desired color */
     /* You can add other effects like text-decoration or transform */
 }
 .productslist a:hover {
-    color: #000000; /* Your desired hover color */
+    color: #ff0000; /* Your desired hover color */
 }
+
 
 
 /* .navbar{
@@ -935,3 +991,92 @@ a:hover {
     top: 0;
 } */
     /* background: linear-gradient(45deg,#ff6666, #ff9999, #ffcc66, #ff0000, #e90202) !important; */
+
+
+
+    /* FOOTER OLD  */
+
+/* .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .footer-links {
+    margin-top: 10px;
+  }
+
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+  }
+
+  .footer-links a:hover {
+    text-decoration: underline;
+  } */
+
+  /* SLIDER  */
+
+#slider h1{
+    margin-bottom: 12px;
+    font-weight: 400;
+    text-align: center;
+    top: 20px;
+}
+
+#slider p{
+    text-align: center;
+}
+
+  #slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    margin-top: 10px;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  

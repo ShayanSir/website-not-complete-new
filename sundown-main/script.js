@@ -61,3 +61,4 @@ page4Animation()
 menuAnimation()
 loaderAnimation()
 
+
